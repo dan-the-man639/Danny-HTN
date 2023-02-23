@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 //import EventSubPage from './EventSubPage.js';
 
 
-const EventDisplay = ({ startTime, endTime, eventName, eventType, eventId, event, onSetPost}) => {
-    onSetPost(event);
+const EventDisplay = ({ startTime, endTime, eventName, eventType, eventId, event}) => {
+    
 
     return (
         
-        <Link class="text-no-underline" to={`/${eventId}`}>      
+        <Link className="text-no-underline" to={`/${eventId}`}>      
         <div className="event-item">
             <EventTime start={startTime} end={endTime}/>
             <div className="event-item__description">

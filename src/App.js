@@ -12,7 +12,6 @@ import EventSubPage from "./components/EventSubPage";
 function App() {
 
   const [posts, setPosts] = useState([]);
-  const [post, setPost] = useState([]);
  
 
   //fetch api data
@@ -36,8 +35,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/login' element={<Login/>}/>
-          <Route exact path='/' element={<RenderEvent events={posts} onSetPost={setPost}/>}/>
+          <Route exact path='/' element={<RenderEvent events={posts}/>}/>
+          <Route exact path='/login' element={Login}/>
           <Route exact path='/:eventId' element={<EventSubPage events={posts}/>}/>
         </Routes>
       </BrowserRouter>
@@ -48,9 +47,9 @@ function App() {
 
 export default App;
 
-{/* <BrowserRouter>
+/* <BrowserRouter>
         <Routes>
           <Route exact path='/login' element={<Login/>}/>
           <Route exact path='/' element={<RenderEvent events={posts} />}/>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter> */

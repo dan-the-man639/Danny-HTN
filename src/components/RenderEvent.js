@@ -8,12 +8,12 @@ import Login from './Login/Login'
 //     useHistory,
 // } from "react-router-dom";
 
-const RenderEvent = ({ events, onSetPost }) => {
-
-
+const RenderEvent = ({ events }) => {
+    
+    const [loginState, setLoginState] = useState(false);
+    console.log("RE-> ", loginState);
 
     //filter private or public
-    const [loginState, setLoginState] = useState(false);
     let showEvent = [];
     if (!loginState) {//if not loged create a public event array
         showEvent = events.filter((event) => event.permission === 'public');
@@ -23,13 +23,14 @@ const RenderEvent = ({ events, onSetPost }) => {
 
     //SORT EVENTS
     showEvent.sort((a, b) => a.start_time - b.start_time);
-    console.log(showEvent);
+    // console.log("hiii")
+    // console.log(showEvent);
 
     return (
-
         <div className="eventBackGround">
             {(events.length) ?
                 <div >
+                    <Login onSetLoginState={setLoginState}/>
                     {showEvent.map((event) => (
                         <EventDisplay
                             key={event.id}
@@ -39,7 +40,6 @@ const RenderEvent = ({ events, onSetPost }) => {
                             eventType={event.event_type}
                             eventId={event.id}
                             event={event}
-                            onSetPost={onSetPost}
                         />
                     ))
                     }
