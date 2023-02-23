@@ -11,7 +11,7 @@ import Login from './Login/Login'
 const RenderEvent = ({ events }) => {
     
     const [loginState, setLoginState] = useState(false);
-    console.log("RE-> ", loginState);
+    
 
     //filter private or public
     let showEvent = [];
@@ -22,9 +22,8 @@ const RenderEvent = ({ events }) => {
     }
 
     //SORT EVENTS
-    showEvent.sort((a, b) => a.start_time - b.start_time);
-    // console.log("hiii")
-    // console.log(showEvent);
+    {(events.length) ? showEvent.sort((a, b) => a.start_time - b.start_time) : <div>sort event error</div>}
+    
 
     return (
         <div className="eventBackGround">
