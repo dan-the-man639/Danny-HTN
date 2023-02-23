@@ -1,0 +1,40 @@
+.subPage {
+    background-color: #4b4b4b;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .subPage h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .subPage .eventType {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #40005d;
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    margin: 0.5rem 0;
+  }
+  
+  .subPage .eventHours {
+    color: white;
+    margin: 0.5rem 0;
+  }
+  
+  .subPage p {
+    color: white;
+    margin: 0.5rem 0;
+  }
+  
+  .subPage .eventDescription {
+    color: white;
+  }
