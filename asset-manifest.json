@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Danny-HTN/static/css/main.da9cce99.css",
+    "main.js": "/Danny-HTN/static/js/main.4f36617e.js",
+    "index.html": "/Danny-HTN/index.html",
+    "main.da9cce99.css.map": "/Danny-HTN/static/css/main.da9cce99.css.map",
+    "main.4f36617e.js.map": "/Danny-HTN/static/js/main.4f36617e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da9cce99.css",
+    "static/js/main.4f36617e.js"
+  ]
+}
