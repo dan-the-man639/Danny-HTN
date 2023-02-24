@@ -18,7 +18,7 @@ function EventSubPage({ events }) {
     // console.log("id:", eventId);
     // console.log("Single event:", event);
     // console.log("Est:", event.start_time);
-    
+
 
     //get date
     const date = new Date(event.start_time);
@@ -27,18 +27,29 @@ function EventSubPage({ events }) {
     const endHour = endDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
     return (
-        <div className='subPage'>
-            {event ? (
-                <div>
-                    <h2 className='eventName'>{event.name}</h2>
-                    <div className='eventType' >{event.event_type}</div>
-                    <div className='eventHours'>{startHour} - {endHour}</div>
-                    <p>By: {event.speakers[0].name}</p>
-                    <p className='eventDescription'>{event.description}</p>
-                </div>
-            ) : (
-                <p>Loading event...</p>
-            )}
+        <div>
+            <div className='subPage'>
+                {event ? (
+                    <div>
+                        <h2 className='eventName'>{event.name}</h2>
+                        <div className='eventType' >{event.event_type}</div>
+                        <div className='eventHours'>{startHour} - {endHour}</div>
+                        <p>By: {event.speakers[0].name}</p>
+                        <p className='eventDescription'>{event.description}</p>
+                    </div>
+                ) : (
+                    <p>Loading event...</p>
+                )}
+            </div>
+       
+            <div class="player">
+                <div class="legs"></div>
+                <div class="back"></div>
+                <div class="glass"></div>
+                <div class="shadow"></div>
+            </div>
+            <div className='message'>To learn more go to <a href={event.public_url}>{event.public_url}</a> </div>
+          
         </div>
     );
 }
