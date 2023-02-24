@@ -10,8 +10,8 @@ const EventDisplay = ({ startTime, endTime, eventName, eventType, eventId, event
     
 
     return (
-        
-        <Link className="text-no-underline" to={`/${eventId}`}>      
+        <div className="eventRow">
+        <Link className="text-no-underline" to={`/Danny-HTN/${eventId}`}>      
         <div className="event-item">
             <EventTime start={startTime} end={endTime}/>
             <div className="event-item__description">
@@ -20,6 +20,7 @@ const EventDisplay = ({ startTime, endTime, eventName, eventType, eventId, event
             </div>
         </div>
         </Link>
+        </div>
     );
 }
 

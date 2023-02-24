@@ -8,11 +8,16 @@ import RenderEvent from "./components/RenderEvent";
 import Login from "./components/Login/Login";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EventSubPage from "./components/EventSubPage";
+import "./App.css"
 
 function App() {
 
   const [posts, setPosts] = useState([]);
- 
+
+  { posts.length > 0 && console.log("post") }
+  console.log(posts)
+
+
 
   //fetch api data
   useEffect(() => {
@@ -31,13 +36,21 @@ function App() {
   }, []);
   ///////////////////////////////////////////////////
 
+
+
   return (
-    <div>
+    <div className="nightSky">
+      <h1>Hack The North Event Board</h1>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/' element={<RenderEvent events={posts}/>}/>
-          <Route exact path='/login' element={Login}/>
-          <Route exact path='/:eventId' element={<EventSubPage events={posts}/>}/>
+          {posts.length > 0 &&
+            <>
+              <Route exact path='/Danny-HTN/' element={<RenderEvent events={posts}/>} />
+              <Route exact path='/Danny-HTN/login' element={<Login/>} />
+              <Route exact path='/Danny-HTN/:eventId' element={<EventSubPage events={posts} />} />
+            </>
+          }
+          <Route path='/' element={<div>empty array</div>}/>
         </Routes>
       </BrowserRouter>
     </div>

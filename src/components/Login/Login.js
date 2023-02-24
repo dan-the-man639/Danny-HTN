@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 //import './Login.css';
 
-function Login({ loginState, onSetLoginState }) {
-    console.log("LS Before ->", loginState);
-
+function Login({ onSetLoginState }) {
     //login info
     const adminUser = {
         email: "admin@gmail.com",
@@ -21,22 +19,19 @@ function Login({ loginState, onSetLoginState }) {
             console.log("logged in");
             setUser({
                 name: details.name,
-                email: details.email
+                email: details.email,
             });
-            onSetLoginState(true);//set the user state
+            onSetLoginState(true);
         } else{
             console.log("Details do not match!");
             setError("Details do not match!");
-            
+            onSetLoginState(false);
         }
-        console.log("LS After ->", loginState);
-
     }
 
     //LogOut
     const Logout = () => {
         setUser({name: "", email: ""});
-        onSetLoginState(false);
     }
 
 //className = login = App

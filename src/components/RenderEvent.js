@@ -1,7 +1,8 @@
 import EventDisplay from "./EventDisplay";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './RenderEvent.css'
 import Login from './Login/Login'
+import NightSky from "../NightSky";
 // import {
 //     Route,
 //     Switch,
@@ -10,13 +11,15 @@ import Login from './Login/Login'
 
 const RenderEvent = ({ events }) => {
     
-    const [loginState, setLoginState] = useState(false);
     
+    const [loginState, setLoginState] = useState(false);    
 
     //filter private or public
     let showEvent = [];
     if (!loginState) {//if not loged create a public event array
         showEvent = events.filter((event) => event.permission === 'public');
+        console.log("events")
+    console.log(events)
     } else {
         showEvent = events;
     }
@@ -29,6 +32,7 @@ const RenderEvent = ({ events }) => {
         <div className="eventBackGround">
             {(events.length) ?
                 <div >
+                    <NightSky/>
                     <Login onSetLoginState={setLoginState}/>
                     {showEvent.map((event) => (
                         <EventDisplay

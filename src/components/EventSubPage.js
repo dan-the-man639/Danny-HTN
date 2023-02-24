@@ -1,14 +1,24 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import React from 'react';
 import './EventSubPage.css'
 
-function EventSubPage({events}){
-    
-    console.log("jiiiii")
-    console.log(events)
+function EventSubPage({ events }) {
+
+
+
+    if (events.length == 0) {
+        console.log("empty array for start time")
+    }
 
     const { eventId } = useParams();
-    const event = events.find(event => (event.id).toString() === eventId);
+    var event = events.find(event => (event.id).toString() === eventId);
+
+    // console.log("eventSubPage")
+    // console.log("Events in ESP:", events);
+    // console.log("id:", eventId);
+    // console.log("Single event:", event);
+    // console.log("Est:", event.start_time);
+    
 
     //get date
     const date = new Date(event.start_time);
@@ -16,15 +26,19 @@ function EventSubPage({events}){
     const startHour = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
     const endHour = endDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
-    return(
+    return (
         <div className='subPage'>
-            <div>
-            <h2 className='eventName'>{event.name}</h2>
-            <div className='eventType' >{event.event_type}</div>
-            <div className='eventHours'>{startHour} - {endHour}</div>
-            <p>By: {event.speakers[0].name}</p>
-            <p className='eventDescription'>{event.description}</p>
-            </div>    
+            {event ? (
+                <div>
+                    <h2 className='eventName'>{event.name}</h2>
+                    <div className='eventType' >{event.event_type}</div>
+                    <div className='eventHours'>{startHour} - {endHour}</div>
+                    <p>By: {event.speakers[0].name}</p>
+                    <p className='eventDescription'>{event.description}</p>
+                </div>
+            ) : (
+                <p>Loading event...</p>
+            )}
         </div>
     );
 }
