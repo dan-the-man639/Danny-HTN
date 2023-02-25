@@ -24,7 +24,7 @@ To fix this i change the path in my routes from path='/' to path='Danny-HTN/'<br
 
 ### Integration
 Problem: I coulden't pass information between child modulus with useState<br/>
-Solution: Had to use lifeting technics by creating a Handler() in the parent function (Reference: Academind Discord server)<br/>
+Solution: Had to use lifting technics by creating a Handler() in the parent function (Reference: Academind Discord server)<br/>
 
 
 
